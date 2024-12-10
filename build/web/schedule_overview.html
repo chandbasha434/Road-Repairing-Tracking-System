@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RRTS - Schedule Overview</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: #fff;
+        } 
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RRTS - Schedule Overview</h1>
+    </header>
+
+    <section>
+        <h2>Upcoming Repairs</h2>
+        <table id="upcomingRepairsTable">
+            <thead>
+                <tr>
+                    <th>Road Name</th>
+                    <th>Scheduled Date</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Main Street</td>
+                    <td>2023-01-15</td>
+                    <td>High</td>
+                    <td>Scheduled</td>
+                </tr>
+                <!-- Add more rows for additional projects -->
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Ongoing Projects</h2>
+        <table id="ongoingProjectsTable">
+            <thead>
+                <tr>
+                    <th>Road Name</th>
+                    <th>Scheduled Date</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Main Street</td>
+                    <td>2023-01-15</td>
+                    <td>High</td>
+                    <td>Scheduled</td>
+                </tr>
+                <!-- Add more rows for additional projects -->
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Completed Projects</h2>
+       <table id="completedProjectsTable">
+            <thead>
+                <tr>
+                    <th>Road Name</th>
+                    <th>Scheduled Date</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Main Street</td>
+                    <td>2023-01-15</td>
+                    <td>High</td>
+                    <td>Scheduled</td>
+                </tr>
+                <!-- Add more rows for additional projects -->
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // JavaScript to fetch data from the backend
+
+        async function fetchData(url) {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        }
+
+        async function populateTable(tableId, endpoint) {
+            const data = await fetchData(`/api/schedule/${endpoint}`);
+            const table = document.getElementById(tableId);
+            const tbody = table.querySelector('tbody');
+
+            // Clear existing rows
+            tbody.innerHTML = '';
+
+            // Populate the table with data
+            data.forEach(entry => {
+                const row = tbody.insertRow();
+                Object.values(entry).forEach(value => {
+                    const cell = row.insertCell();
+                    cell.textContent = value;
+                });
+            });
+        }
+
+        // Populate tables with data from the backend
+        populateTable('upcomingRepairsTable', 'upcomingRepairs');
+        populateTable('ongoingProjectsTable', 'ongoingProjects');
+        populateTable('completedProjectsTable', 'completedProjects');
+    </script>
+</body>
+</html>

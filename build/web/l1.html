@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RRTS - Contact & Feedback</title>
+    <style>
+        body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }
+
+            header {
+                background-color: #333;
+                color: #fff;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .container1 {
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                overflow-x: auto; /* Enable horizontal scrolling if content overflows */
+            }
+
+            .module {
+                width: 48%; /* Adjust the width as needed */
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .module h2 {
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+            .module p {
+                color: #666;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+
+            .form-group textarea,
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .form-group button {
+                background-color: #3498db;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            .form-group button:hover {
+                background-color: #2980b9;
+            }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Road Repair and Tracking System</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="module">
+            <h2>Contact Information</h2>
+            <p>For any inquiries or assistance, please contact us:</p>
+            <p>Email: contact@rrts.com</p>
+            <p>Phone: +1 123-456-7890</p>
+        </div>
+
+        <div class="module">
+            <h2>Give Us Your Feedback</h2>
+            <div class="feedback-form">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="feedback">Your Feedback:</label>
+                        <textarea id="feedback" name="feedback" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Submit Feedback</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+    "elements": {
+        "style": {},
+        "title": {}
+    },
+    "attributes": {
+        "charset": {
+            "context": "meta"
+        },
+        "name": {
+            "context": "meta"
+        },
+        "http-equiv": {}
+    }
+}
